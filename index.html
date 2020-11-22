@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="style_sans-serif.css">
+        <link rel="stylesheet" type="text/css" href="style_cursive.css">
+        <link rel="stylesheet" type="text/css" href="style_color.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="filter-row">
+                <h1>Costly Spell Stuff</h1>
+
+                <label for="searchBox" class="searchLabel">
+                    Search the stuff
+                    <input type="text" id="searchBox" onkeyup="tableSearch()" placeholder="eg. diamonds" title="Type something to search">
+                </label>
+                <label for="classDropdown" class="classLabel">
+                    Class filter
+                    <select id="choice" title="Filter spells by caster class">
+                      <option value="all">All of 'em</option>
+                      <option value="artificer">Artificer</option>
+                      <option value="bard">Bard</option>
+                      <option value="cleric">Cleric</option>
+                      <option value="druid">Druid</option>
+                      <option value="paladin">Paladin</option>
+                      <option value="ranger">Ranger</option>
+                      <option value="sorcerer">Sorcerer</option>
+                      <option value="warlock">Warlock</option>
+                      <option value="wizard">Wizard</option>
+                    </select>
+                </label>
+                <label for="consumedCheck" class="consumedLabel">
+                    Consumed only
+                    <input type="checkbox" class="switch" id="consumedCheck" title="Only show spells with consumed materials">
+                </label>
+
+                <div class="settingsButtonWrapper">
+                    <img class="settingsButton" src="cog.svg"/>
+
+                    <div class="settingsDropdown">
+                        <label class="container-checkbox">Boring mode
+                            <input type="checkbox" id="boringCheck">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container-checkbox">Dark mode
+                            <input type="checkbox" id="darkCheck">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <table class="spellTable" id="columnTitles">
+                <thead>
+                    <th>Spell</th>
+                    <th>Components</th>
+                </thead>
+            </table>
+
+            <table class="spellTable level1">
+                <tbody>
+                    <tr class="visible all sorcerer wizard">
+                        <td>Chromatic Orb <span>(evocation)</span></td>
+                        <td>50gp diamond</td>
+                    </tr>
+                    <tr class="visible all wizard consumed">
+                        <td>Find Familiar <span>(conjuration ritual)</span></td>
+                        <td>10gp charcoal &amp; incense &amp; herbs</td>
+                    </tr>
+                    <tr class="visible all bard wizard artificer">
+                        <td>Identify <span>(divination ritual)</span></td>
+                        <td>100gp pearl</td>
+                    </tr>
+                    <tr class="visible all bard warlock wizard consumed">
+                        <td>Illusory Script <span>(illusion ritual)</span></td>
+                        <td>10gp ink</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level2">
+                <tbody>
+                    <tr class="visible all wizard artificer consumed">
+                        <td>Arcane Lock <span>(abjuration)</span></td>
+                        <td>25gp gold dust</td>
+                    </tr>
+                    <tr class="visible all cleric">
+                        <td>Augury <span>(divination ritual)</span></td>
+                        <td>25gp divination tokens</td>
+                    </tr>
+                    <tr class="visible all cleric wizard artificer consumed">
+                        <td>Continual Flame <span>(evocation)</span></td>
+                        <td>50gp ruby dust</td>
+                    </tr>
+                    <tr class="visible all ranger">
+                        <td>Cordon of Arrows <span>(transmutation)</span></td>
+                        <td>4+ arrows or bolts</td>
+                    </tr>
+                    <tr class="visible all cleric wizard">
+                        <td>Gentle Repose <span>(necromancy ritual)</span></td>
+                        <td>2cp</td>
+                    </tr>
+                    <tr class="visible all bard wizard artificer consumed">
+                        <td>Magic Mouth <span>(illusion ritual)</span></td>
+                        <td>10gp jade dust</td>
+                    </tr>
+                    <tr class="visible all cleric">
+                        <td>Warding Bond <span>(abjuration)</span></td>
+                        <td>2 x 50gp platinum rings</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level3">
+                <tbody>
+                    <tr class="visible all bard cleric sorcerer wizard">
+                        <td>Clairvoyance <span>(divination)</span></td>
+                        <td>100gp arcane focus</td>
+                    </tr>
+                    <tr class="visible all ranger">
+                        <td>Conjure Barrage <span>(conjuration)</span></td>
+                        <td>1 ammo or weapon</td>
+                    </tr>
+                    <tr class="visible all bard cleric wizard artificer">
+                        <td>Glyph of Warding <span>(abjuration)</span></td>
+                        <td>200gp powdered diamond</td>
+                    </tr>
+                    <tr class="visible all cleric paladin warlock wizard consumed">
+                        <td>Magic Circle <span>(abjuration)</span></td>
+                        <td>100gp holy water or iron / silver powder</td>
+                    </tr>
+                    <tr class="visible all bard ranger wizard consumed">
+                        <td>Nondetection <span>(abjuration)</span></td>
+                        <td>25gp diamond dust</td>
+                    </tr>
+                    <tr class="visible all cleric paladin artificer consumed">
+                        <td>Revivify <span>(conjuration)</span></td>
+                        <td>300gp worth diamonds</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level4">
+                <tbody>
+                    <tr class="visible all cleric consumed">
+                        <td>Divination <span>(divination ritual)</span></td>
+                        <td>25gp sacrificial offering</td>
+                    </tr>
+                    <tr class="visible all wizard artificer">
+                        <td>Leomund's Secret Chest <span>(conjuration)</span></td>
+                        <td>5000gp chest, 50gp replica</td>
+                    </tr>
+                    <tr class="visible all druid ranger sorcerer wizard artificer consumed">
+                        <td>Stoneskin <span>(abjuration)</span></td>
+                        <td>100gp diamond dust</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level5">
+                <tbody>
+                    <tr class="visible all bard druid consumed">
+                        <td>Awaken <span>(transmutation)</span></td>
+                        <td>1000gp agate</td>
+                    </tr>
+                    <tr class="visible all ranger">
+                        <td>Conjure Volley <span>(conjuration)</span></td>
+                        <td>1 ammo or weapon</td>
+                    </tr>
+                    <tr class="visible all bard cleric druid artificer consumed">
+                        <td>Greater Restoration <span>(abjuration)</span></td>
+                        <td>100gp diamond dust</td>
+                    </tr>
+                    <tr class="visible all cleric consumed">
+                        <td>Hallow <span>(evocation)</span></td>
+                        <td>1000gp incense</td>
+                    </tr>
+                    <tr class="visible all bard cleric wizard consumed partially">
+                        <td>Legend Lore <span>(divination)</span></td>
+                        <td>250gp incense <span>(consumed)</span>, 4 x 50gp ivory strips <span>(not consumed)</span></td>
+                    </tr>
+                    <tr class="visible all bard cleric druid wizard consumed">
+                        <td>Planar Binding <span>(abjuration)</span></td>
+                        <td>1000gp jewel</td>
+                    </tr>
+                    <tr class="visible all bard cleric paladin consumed">
+                        <td>Raise Dead <span>(necromancy)</span></td>
+                        <td>500gp diamond</td>
+                    </tr>
+                    <tr class="visible all druid consumed">
+                        <td>Reincarnate <span>(transmutation)</span></td>
+                        <td>1000gp oils &amp; unguents</td>
+                    </tr>
+                    <tr class="visible all bard cleric druid warlock wizard">
+                        <td>Scrying <span>(divination)</span></td>
+                        <td>1000gp focus to stare into</td>
+                    </tr>
+                    <tr class="visible all ranger">
+                        <td>Swift Quiver <span>(transmutation)</span></td>
+                        <td>Quiver of 1+ ammo</td>
+                    </tr>
+                    <tr class="visible all bard sorcerer wizard">
+                        <td>Teleportation Circle <span>(conjuration)</span></td>
+                        <td>50gp rare chalks / ink infused with gems</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level6">
+                <tbody>
+                    <tr class="visible all sorcerer wizard warlock">
+                        <td>Circle of Death <span>(necromancy)</span></td>
+                        <td>500gp crushed black pearl</td>
+                    </tr>
+                    <tr class="visible all cleric warlock wizard">
+                        <td>Create Undead <span>(necromancy)</span></td>
+                        <td>150gp black onyx per corpse</td>
+                    </tr>
+                    <tr class="visible all wizard">
+                        <td>Drawmij's Instant Summon <span>(conjuration ritual)</span></td>
+                        <td>1000gp sapphire</td>
+                    </tr>
+                    <tr class="visible all bard cleric druid">
+                        <td>Find the Path <span>(divination)</span></td>
+                        <td>100gp divnation tools, object from target location</td>
+                    </tr>
+                    <tr class="visible all cleric">
+                        <td>Forbiddance <span>(abjuration ritual)</span></td>
+                        <td>1000gp powdered ruby</td>
+                    </tr>
+                    <tr class="visible all bard wizard">
+                        <td>Guards and Wards <span>(abjuration)</span></td>
+                        <td>10gp silver rod</td>
+                    </tr>
+                    <tr class="visible all cleric druid consumed">
+                        <td>Heroes' Feast <span>(conjuration)</span></td>
+                        <td>1000gp gemmed bowl</td>
+                    </tr>
+                    <tr class="visible all wizard">
+                        <td>Magic Jar <span>(necromancy)</span></td>
+                        <td>500gp gem or container</td>
+                    </tr>
+                    <tr class="visible all bard wizard">
+                        <td>Programmed Illusion <span>(illusion)</span></td>
+                        <td>25gp jade dust</td>
+                    </tr>
+                    <tr class="visible all bard cleric sorcerer warlock wizard consumed">
+                        <td>True Seeing <span>(divination)</span></td>
+                        <td>25gp ointment</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level7">
+                <tbody>
+                    <tr class="visible all bard warlock wizard">
+                        <td>Forcecage <span>(evocation)</span></td>
+                        <td>1500gp ruby dust</td>
+                    </tr>
+                    <tr class="visible all bard wizard">
+                        <td>Mordenkainen's Magnificent Mansion <span>(conjuration)</span></td>
+                        <td>5gp ivory portal, 5gp piece of marble, 5gp silver spoon</td>
+                    </tr>
+                    <tr class="visible all bard wizard">
+                        <td>Mordenkainen's Sword <span>(evocation)</span></td>
+                        <td>250gp miniature platinum / copper / zinc sword</td>
+                    </tr>
+                    <tr class="visible all cleric druid sorcerer warlock wizard">
+                        <td>Plane Shift <span>(conjuration)</span></td>
+                        <td>250gp planar attuned forked metal rod</td>
+                    </tr>
+                    <tr class="visible all bard wizard">
+                        <td>Project Image <span>(illusion)</span></td>
+                        <td>5gp small replica of caster</td>
+                    </tr>
+                    <tr class="visible all bard cleric consumed">
+                        <td>Resurrection <span>(necromancy)</span></td>
+                        <td>1000gp diamond</td>
+                    </tr>
+                    <tr class="visible all wizard consumed">
+                        <td>Sequester <span>(transmutation)</span></td>
+                        <td>5000gp powder of diamond / emerald / ruby / sapphire</td>
+                    </tr>
+                    <tr class="visible all wizard consumed">
+                        <td>Simulacrum <span>(illusion)</span></td>
+                        <td>1500gp powdered ruby, snow or ice sculpture of subject, body matter of subject</td>
+                    </tr>
+                    <tr class="visible all bard cleric wizard consumed">
+                        <td>Symbol <span>(abjuration)</span></td>
+                        <td>1000gp mercury / phosphorus / powdered diamond / opal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level8">
+                <tbody>
+                    <tr class="visible all wizard consumed partially">
+                        <td>Clone <span>(necromancy)</span></td>
+                        <td>1000gp diamond and 1 inch cube of the target's flesh <span>(both consumed)</span>, 2000gp lidded vessel <span>(occupied but not consumed)</span></td>
+                    </tr>
+                    <tr class="visible all cleric">
+                        <td>Holy Aura <span>(abjuration)</span></td>
+                        <td>1000gp tiny reliquary</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spellTable level9">
+                <tbody>
+                    <tr class="visible all cleric warlock wizard consumed">
+                        <td>Astral Projection <span>(necromancy)</span></td>
+                        <td>1000gp jacinth, 100gp ornate silver bar</td>
+                    </tr>
+                    <tr class="visible all cleric sorcerer wizard">
+                        <td>Gate <span>(conjuration)</span></td>
+                        <td>5000gp diamond</td>
+                    </tr>
+                    <tr class="visible all warlock wizard">
+                        <td>Imprisonment <span>(abjuration)</span></td>
+                        <td>500gp per hit die of target - special item</td>
+                    </tr>
+                    <tr class="visible all druid wizard">
+                        <td>Shapechange <span>(transmutation)</span></td>
+                        <td>1500gp jade circlet</td>
+                    </tr>
+                    <tr class="visible all cleric druid consumed">
+                        <td>True Ressurection <span>(necromancy)</span></td>
+                        <td>25000gp of diamonds</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="label-cover"></div>
+        </div>
+
+        <!--Distortion overlay-->
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="height: 0; width: 0;">
+          <defs>
+            <filter id="squiggly-0">
+              <feTurbulence id="turbulence" baseFrequency="0.002" numOctaves="1" result="noise" seed="1"/>
+              <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="9" />
+            </filter>
+          </defs> 
+        </svg>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            // Searchbox
+            $("#searchBox").on("keyup", function() {
+              var value = $(this).val().toLowerCase();
+              $(".spellTable:not(#columnTitles) tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              });
+            });
+
+
+            // Class dropdown
+            $("#choice").change(function(){
+                $(".spellTable tbody tr").addClass("hide");
+                $(".spellTable tbody tr."+$(this).val()).removeClass("hide");
+            });
+
+
+            // Consumed toggle switch
+            $(function () {
+                $("#consumedCheck").click(function () {
+                    if ($(this).is(":checked")) {
+                        $("tbody tr:not(.consumed)").addClass("hide");
+                    } else {
+                        $("tbody tr:not(.consumed)").removeClass("hide");
+                    }
+                });
+            });
+
+
+            // Settings dropdown
+            $('.settingsButton').on('click',function(){
+                $('.settingsDropdown').slideToggle(140);
+            });
+
+
+            // Boring mode switch
+            $(function () {
+                $("#boringCheck").click(function () {
+                    if ($(this).is(":checked")) {
+                        $("html").addClass("boring");
+                    } else {
+                        $("html").removeClass("boring");
+                    }
+                });
+            });
+
+
+            // Dark mode switch
+            $(function () {
+                $("#darkCheck").click(function () {
+                    if ($(this).is(":checked")) {
+                        $("html").addClass("dark");
+                    } else {
+                        $("html").removeClass("dark");
+                    }
+                });
+            });
+        </script>
+
+    </body>
+</html>

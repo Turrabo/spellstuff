@@ -1,0 +1,446 @@
+html.boring {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+html.boring body {
+    padding: clamp(0px, 1.5vw, 2em) 3vw 5em;
+    font-size: clamp(80%, 1.6vw, 100%);
+    opacity: 1;
+    animation: fadeIn 0.6s ease;
+    position: relative;
+}
+
+@keyframes fadeIn{
+    0%{opacity: 0;}
+    25%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+html.boring .main {
+    max-width: 66.7em; /* 1200px */
+    margin: 0 auto;
+    padding: 0 clamp(5.4em, 10vw, 6.9em);
+}
+
+
+/*-- Spell table --*/
+html.boring .spellTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+html.boring span {
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 80%;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+html.boring tbody,
+html.boring thead {
+    border: 1px solid;
+    border-bottom: none;
+}
+
+html.boring .spellTable#columnTitles th,
+html.boring .spellTable tbody td {
+    text-align: left;
+    padding: 1em 0.66em; /* 6px 12px */
+    line-height: 1.4;
+}
+
+html.boring .spellTable#columnTitles th {
+    height: 3.33em;
+}
+
+html.boring .spellTable th:first-child,
+html.boring tbody tr td:first-child {
+    width: 40%;
+    font-weight: bold;
+}
+html.boring .spellTable th:last-child,
+html.boring tbody tr td:last-child {
+    width: 50%;
+}
+html.boring .spellTable:not(#columnTitles) th:last-child,
+html.boring tbody tr td:last-child {
+    font-size: 80%;
+}
+
+html.boring .spellTable tr {
+    border-bottom: 1px solid;
+}
+
+html.boring table:not(#columnTitles) {
+    margin-bottom: -1px;
+}
+
+
+/*-- Hiding and showing rows --*/
+html.boring tbody tr:not(.hide) {
+    height: 3em;
+}
+
+html.boring tbody tr.hide,
+html.boring tbody tr.hide td {
+    opacity: 0;
+    height: 0em !Important;
+    overflow: hidden;
+    padding-top: 0 !Important;
+    padding-bottom: 0 !Important;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0;
+    border-bottom: 0em !Important;
+    transition: opacity 0.2s, height 0.2s, padding 0.2s, margin 0.2s, border-width 0.2s;
+}
+
+
+html.boring tbody tr:not(.hide),
+html.boring tbody tr:not(.hide) td {
+    font-size: 1em; /* 18px */
+    transition: opacity 0.5s, height 0.2s, padding 0.2s, margin 0.2s, font-size 0.1s, border-width 0.2s;
+    transition-delay: opacity 0.2s;
+}
+
+
+
+/*-- Filter row --*/
+html.boring .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 -1.1rem 1.67em; /* -20px 30px */
+}
+
+html.boring .filter-row h1 {
+    flex-grow: 1;
+}
+
+html.boring .filter-row > * {
+    display: block;
+    margin: 0.55em 0.5rem;
+}
+
+html.boring .searchLabel,
+html.boring .classLabel {
+    width: clamp(8rem, 20vw, 11.8rem);
+}
+
+html.boring input[type='text'],
+html.boring select {
+    box-sizing: border-box !important;
+    font-size: 0.89em; /* 16px */
+    padding: 0.67em; /* 12px */
+    border: 1px solid;
+    display: block;
+    margin-top: 0.28em; /* 5px */
+    width: 100%;
+    line-height: 100%;
+}
+
+html.boring select {
+    padding: calc(0.67em - 1px);
+}
+
+
+/*-- Checkbox --*/
+html.boring .switch {
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 3.1em;
+    height: 1.056em;
+    display: block;
+    position: relative;
+    border-radius: 2.78em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+}
+html.boring .switch::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1.55em;
+    height: 1.55em;
+    border-radius: 50%;
+    box-shadow: 0 0.07em 0.14em rgba(0, 0, 0, 0.2);
+    transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+html.boring .switch:checked::before {
+    left: calc(100% - 1.55em);
+}
+
+
+/*-- Consumed labels --*/
+html.boring tbody tr td {
+    height: 2.22em; /* 40px */
+}
+
+html.boring tbody tr td:last-child{
+    position: relative;
+}
+
+html.boring tbody tr.consumed td:last-child::after {
+    content: 'Consumed';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: calc(100% + 1vw);
+    transform: translateY(-50%);
+    padding: 0.33em 0.56em; /* 6px 10px */
+    border-radius: 1.1em; /* 20px */
+    font-size: 70%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: left 0.2s;
+}
+
+html.boring tbody tr.consumed.partially td:last-child::after {
+    content: 'Consumed *';
+    white-space: nowrap;
+    padding-right: 0.33em; /* 6px */
+}
+
+html.boring tbody tr.consumed:hover td:last-child::after {
+    left: calc(100% + 0.83em);
+    transition: left 0.2s;
+}
+
+
+/*-- Level labels --*/
+html.boring table {
+    position: relative;
+}
+
+html.boring table.level1:before,
+html.boring table.level2:before,
+html.boring table.level3:before,
+html.boring table.level4:before,
+html.boring table.level5:before,
+html.boring table.level6:before,
+html.boring table.level7:before,
+html.boring table.level8:before,
+html.boring table.level9:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    transform: translateX(calc(-100% - 0.55em));
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-top: solid 2px;
+    padding-top: 0.33em; /* 6px */
+    padding-right: min(1.9em, 1vw);
+}
+
+html.boring table.level1:before {content: 'Level 1';}
+html.boring table.level2:before {content: 'Level 2';}
+html.boring table.level3:before {content: 'Level 3';}
+html.boring table.level4:before {content: 'Level 4';}
+html.boring table.level5:before {content: 'Level 5';}
+html.boring table.level6:before {content: 'Level 6';}
+html.boring table.level7:before {content: 'Level 7';}
+html.boring table.level8:before {content: 'Level 8';}
+html.boring table.level9:before {content: 'Level 9';}
+
+html.boring .label-cover {
+    position: relative;
+}
+
+html.boring .label-cover::before {
+    content: '';
+    position: absolute;
+    width: 8em;
+    transform: translate(-100%, -1px);
+    height: 2em;
+}
+
+
+
+/*-- Settings menu --*/
+html.boring .filter-row {
+    position: relative;
+}
+
+html.boring .settingsButtonWrapper {
+    width: 2.2em;
+    position: absolute;
+    bottom: -5.3em;
+    right: 1.5em;
+    z-index: 1000;
+}
+
+html.boring .settingsButton {
+    width: 2.2em;
+    height: 2.2em;
+    padding: 0.25em;
+    cursor: pointer;
+}
+
+html.boring .settingsButton,
+html.boring .settingsDropdown {
+    border: solid 1px;
+}
+
+html.boring .settingsDropdown {
+    position: absolute;
+    left: 50%;
+    bottom: 0.8em;
+    transform: translate(-50%, 100%);
+    display: none;
+    margin-top: -1px;
+    font-size: 0.5rem;
+}
+
+html.boring .container-checkbox {
+    display: block;
+    width: 9em;
+    margin: 0.6em 0em 0.4em 1em;
+    display: block;
+    position: relative;
+    padding: 0.65em 0 0.8em 2em;
+    cursor: pointer;
+    font-size: 170%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+html.boring .container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+html.boring .container-checkbox .checkmark {
+    position: absolute;
+    top: 0.6em;
+    left: 0;
+    height: 1.6em;
+    width: 1.6em;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+html.boring .container-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+html.boring .container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+html.boring .container-checkbox .checkmark:after {
+    left: 0.5em;
+    top: 0.12em;
+    width: 0.35em;
+    height: 0.8em;
+    border: solid white;
+    border-width: 0 0.2em 0.2em 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
+/*-- Media queries --*/
+@media only screen and (max-width: 1200px) {
+    html.boring .filter-row {
+        margin-left: clamp(-8em, -10vw, -5.55em);
+        margin-right: clamp(-8em, -10vw, -5.55em);
+    }
+
+    html.boring .settingsButtonWrapper {
+        right: 7em;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    html.boring .filter-row h1 {
+        width: 100%;
+    }
+    html.boring .container-checkbox {
+        font-size: 150%;
+    }
+    html.boring .settingsButton {
+        width: 2.5em;
+        height: 2.5em;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    html.boring tr {
+        height: 11em; /* 200px */
+    }
+    html.boring td {
+        display: block;
+        width: 100%;
+        height: auto !Important;
+        padding: 0;
+    }
+    
+    html.boring .spellTable th:first-child,
+    html.boring tbody tr td:first-child {
+        width: 100%;
+        font-weight: bold;
+        padding-top: 0.7em;
+    }
+    html.boring .spellTable th:last-child,
+    html.boring tbody tr td:last-child {
+        width: 100%;
+        padding-top: 0px;
+        padding-bottom: 0.7em;
+    }
+    
+    html.boring tbody tr.consumed td:last-child::after {
+        top: 0;
+    }
+    
+    html.boring .filter-row h1 {
+        width: 100%;
+    }
+    html.boring #columnTitles thead {
+        display: none;
+    }
+    
+    html.boring .settingsButtonWrapper {
+        width: 2.5em;
+        height: 2.6em;
+        top: 0.3em;
+        right: 0.3em;
+    }
+    html.boring .settingsDropdown {
+        transform: translate(-80%, 100%);
+    }
+}
+
+
+@media only screen and (min-width: 1000px) {
+    html.boring #columnTitles {
+        position: relative;
+    }
+}

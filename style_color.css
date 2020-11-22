@@ -1,0 +1,170 @@
+/*-- Light mode colours --*/
+html:not(.dark) {
+    color: #242424;
+}
+html:not(.dark) span {
+    color: #919191;
+}
+html:not(.dark) tbody,
+html:not(.dark) thead {
+    border-color: #ddd !important;
+}
+html:not(.dark) .spellTable#columnTitles th {
+    background-color: #f0f0f0;
+}
+html:not(.dark) .spellTable tr {
+    border-color: #ddd !important;
+}
+html:not(.dark) .spellTable tbody tr:hover {
+    background-color: #fcfcfc;
+}
+html:not(.dark) table:not(#columnTitles) {
+    background-color: #fff;
+}
+html:not(.dark) input[type='text'],
+html:not(.dark) select {
+    border-color: #ddd !important;
+}
+html:not(.dark) .switch {
+    background-color: #ddd;
+}
+html:not(.dark) .switch::before {
+    background: #d4d4d4;
+}
+html:not(.dark) .switch:checked {
+    background-color: #87c45c;
+}
+html:not(.dark) .switch:checked::before {
+    background-color: #4d8723;
+}
+html:not(.dark) tbody tr.consumed td:last-child::after {
+    background-color: #e3e3e3;
+}
+html:not(.dark) table.level1:before,
+html:not(.dark) table.level2:before,
+html:not(.dark) table.level3:before,
+html:not(.dark) table.level4:before,
+html:not(.dark) table.level5:before,
+html:not(.dark) table.level6:before,
+html:not(.dark) table.level7:before,
+html:not(.dark) table.level8:before,
+html:not(.dark) table.level9:before {
+    border-color: #242424 !important;
+    background-color: #fff;
+}
+html:not(.dark) .label-cover::before {
+    background-color: #fff;
+}
+html:not(.dark) .settingsDropdown {
+    background-color: #fff;
+}
+html:not(.dark) .settingsButton {
+    background-color: #fff;
+}
+html:not(.dark) .settingsButton,
+.settingsDropdown {
+    border-color: #ccc !important;
+}
+html:not(.dark) .container-checkbox .checkmark {
+    background-color: #eee;
+}
+html:not(.dark) .container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+html:not(.dark) .container-checkbox input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+
+
+
+
+
+
+/*-- Dark mode colours --*/
+html.dark {
+    color: #fff;
+}
+html.dark body {
+    background-color: #1a1a1a;
+}
+html.dark body:after {
+    filter: invert(1);
+}
+html:not(.dark) span {
+    color: #464646;
+}
+html.dark tbody,
+html.dark thead {
+    border-color: #464646 !important;
+}
+html.dark .spellTable#columnTitles th {
+    background-color: #525252;
+}
+html.dark .spellTable tr {
+    border-color: #464646 !important;
+}
+html.dark .spellTable tbody tr:hover {
+    background-color: #383838;
+}
+html.dark table:not(#columnTitles) {
+    background-color: #292929;
+}
+html.dark input[type='text'],
+html.dark select {
+    border-color: #4e4e4e !important;
+    background-color: #313131 !important;
+    color: #fff;
+}
+html.dark .switch {
+    background-color: #464646;
+}
+html.dark .switch::before {
+    background: #d4d4d4;
+}
+html.dark .switch:checked {
+    background-color: #87c45c;
+}
+html.dark .switch:checked::before {
+    background-color: #4d8723;
+}
+html.dark tbody tr.consumed td:last-child::after {
+    background-color: #565656;
+}
+html.dark table.level1:before,
+html.dark table.level2:before,
+html.dark table.level3:before,
+html.dark table.level4:before,
+html.dark table.level5:before,
+html.dark table.level6:before,
+html.dark table.level7:before,
+html.dark table.level8:before,
+html.dark table.level9:before {
+    border-color: #dedede !important;
+    background-color: #1a1a1a;
+}
+html.dark .label-cover::before {
+    background-color: #1a1a1a;
+}
+html.dark .settingsDropdown {
+    background-color: #1a1a1a;
+}
+html.dark .settingsButton {
+    background-color: #848484;
+}
+html.dark .settingsButton,
+.settingsDropdown {
+    border-color: #c5c5c5 !important;
+}
+html.dark .settingsButton {
+    filter: invert(1);
+}
+html.dark .container-checkbox .checkmark {
+    background-color: #eee;
+}
+html.dark .container-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+html.dark .container-checkbox input:checked ~ .checkmark {
+    background-color: #2196F3;
+}

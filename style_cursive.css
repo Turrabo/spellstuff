@@ -1,0 +1,493 @@
+html:not(.boring) {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;
+    letter-spacing: -1.5px;
+    font-family: 'Gaegu', 'Open Sans', sans-serif;
+}
+
+html:not(.boring) body {
+    padding: clamp(0px, 1.5vw, 1em) 5px 2.5em;
+    font-size: clamp(75%, 2.7vw, 100%);
+    opacity: 1;
+    animation: fadeIn 0.6s ease;
+    position: relative;
+}
+
+html:not(.boring) body::after {
+    content: '';
+    position: absolute;
+    z-index: -999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(texture.png);
+    background-repeat: repeat;
+    opacity: 40%;
+}
+
+@keyframes fadeIn{
+    0%{opacity: 0;}
+    25%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+html:not(.boring) .main {
+    max-width: 40em; /* 1200px */
+    margin: 0 auto;
+    padding: 0 clamp(4em, 10vw, 3.45em);
+}
+
+html:not(.boring) .main,
+html:not(.boring) .settingsButtonWrapper {
+    filter: url("#squiggly-0");
+}
+
+
+/*-- Spell table --*/
+html:not(.boring) .spellTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+html:not(.boring) span {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 80%;
+    margin-left: 1px;
+    margin-right: 1px;
+    letter-spacing: -0.5px;
+}
+
+html:not(.boring) tbody,
+html:not(.boring) thead {
+    border: 5px solid;
+    border-bottom: none;
+}
+
+html:not(.boring) #columnTitles {
+    width: calc(100% + 4px);
+    margin-left: -2px;
+}
+
+html:not(.boring) .spellTable#columnTitles th,
+html:not(.boring) .spellTable tbody td {
+    text-align: left;
+    padding: 0.55em;
+    line-height: 1.05;
+}
+
+html:not(.boring) .spellTable#columnTitles th {
+    height: 1.665em;
+}
+
+html:not(.boring) .spellTable th:first-child,
+html:not(.boring) tbody tr td:first-child {
+    width: 40%;
+    font-weight: bold;
+}
+html:not(.boring) .spellTable th:last-child,
+html:not(.boring) tbody tr td:last-child {
+    width: 50%;
+}
+html:not(.boring) .spellTable:not(#columnTitles) th:last-child,
+html:not(.boring) tbody tr td:last-child {
+    font-size: 80%;
+}
+
+html:not(.boring) .spellTable tr {
+    border-bottom: 3px solid;
+}
+
+html:not(.boring) table:not(#columnTitles) {
+    margin-bottom: -2px;
+}
+
+
+/*-- Hiding and showing rows --*/
+html:not(.boring) tbody tr:not(.hide) {
+    height: 1.5em; /* 55px */
+}
+
+html:not(.boring) tbody tr.hide,
+html:not(.boring) tbody tr.hide td {
+    opacity: 0;
+    height: 0em !Important;
+    overflow: hidden;
+    padding-top: 0 !Important;
+    padding-bottom: 0 !Important;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0;
+    border-bottom: 0em !Important;
+    transition: opacity 0.2s, height 0.2s, padding 0.2s, margin 0.2s, border-width 0.2s;
+}
+
+
+html:not(.boring) tbody tr:not(.hide),
+html:not(.boring) tbody tr:not(.hide) td {
+    font-size: 1em;
+    transition: opacity 0.5s, height 0.2s, padding 0.2s, margin 0.2s, font-size 0.1s, border-width 0.2s;
+    transition-delay: opacity 0.2s;
+}
+
+
+
+/*-- Filter row --*/
+html:not(.boring) .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 -3rem 1.3em;
+}
+
+html:not(.boring) .filter-row h1 {
+    flex-grow: 1;
+}
+
+html:not(.boring) .filter-row > * {
+    display: block;
+    margin: 0.275em 0.25rem;
+}
+html:not(.boring) .filter-row > *:not(h1) {
+    font-size: 80%;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+}
+
+html:not(.boring) .searchLabel,
+html:not(.boring) .classLabel {
+    width: clamp(5.5rem, 20vw, 8rem);
+}
+
+html:not(.boring) input[type='text'],
+html:not(.boring) select {
+    box-sizing: border-box !important;
+    font-size: 0.89em;
+    padding: 0.345em 0.5em;
+    border: 4px solid;
+    display: block;
+    margin-top: 0.14em;
+    width: 100%;
+    line-height: 100%;
+}
+
+html:not(.boring) select {
+    padding: calc(0.345em + 1.5px);
+}
+
+
+/*-- Checkbox --*/
+html:not(.boring) .switch {
+    margin-top: 0.65em; /* 18px */
+    margin-bottom: 0.6em; /* 13px */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 2.2em;
+    height: 0.75em; /* 19px */
+    display: block;
+    position: relative;
+    border-radius: 1.48em; /* 50px */
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+}
+html:not(.boring) .switch::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1.1em;
+    height: 1.1em;
+    border-radius: 50%;
+    box-shadow: 0 0.045em 0.07em rgba(0, 0, 0, 0.2);
+    transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+html:not(.boring) .switch:checked::before {
+    left: calc(100% - 1em);
+}
+
+
+/*-- Consumed labels --*/
+html:not(.boring) tbody tr td {
+    height: 1.11em; /* 40px */
+}
+
+html:not(.boring) tbody tr td:last-child{
+    position: relative;
+}
+
+html:not(.boring) tbody tr.consumed td:last-child::after {
+    content: 'Consumed';
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: calc(100% + 1vw);
+    transform: translateY(-50%);
+    padding: 0.3em 0.4em;
+    border-radius: 1.1em; /* 20px */
+    font-size: 60%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: left 0.2s;
+}
+
+html:not(.boring) tbody tr.consumed.partially td:last-child::after {
+    content: 'Consumed*';
+    white-space: nowrap;
+    padding-right: 0.165em; /* 6px */
+}
+
+html:not(.boring) tbody tr.consumed:hover td:last-child::after {
+    left: calc(100% + 0.415em);
+    transition: left 0.2s;
+}
+
+
+/*-- Level labels --*/
+html:not(.boring) table {
+    position: relative;
+}
+
+html:not(.boring) table.level1:before,
+html:not(.boring) table.level2:before,
+html:not(.boring) table.level3:before,
+html:not(.boring) table.level4:before,
+html:not(.boring) table.level5:before,
+html:not(.boring) table.level6:before,
+html:not(.boring) table.level7:before,
+html:not(.boring) table.level8:before,
+html:not(.boring) table.level9:before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    transform: translateX(calc(-100% - 0.275em));
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-top: solid 2px;
+    padding-top: 0.165em; /* 6px */
+    padding-right: min(0.95em, 1vw);
+}
+
+html:not(.boring) table.level1:before {content: 'Level 1';}
+html:not(.boring) table.level2:before {content: 'Level 2';}
+html:not(.boring) table.level3:before {content: 'Level 3';}
+html:not(.boring) table.level4:before {content: 'Level 4';}
+html:not(.boring) table.level5:before {content: 'Level 5';}
+html:not(.boring) table.level6:before {content: 'Level 6';}
+html:not(.boring) table.level7:before {content: 'Level 7';}
+html:not(.boring) table.level8:before {content: 'Level 8';}
+html:not(.boring) table.level9:before {content: 'Level 9';}
+
+html:not(.boring) .label-cover {
+    position: relative;
+}
+
+
+html:not(.boring) .label-cover::before {
+    content: '';
+    position: absolute;
+    width: 5em;
+    transform: translate(-101%, -4px);
+    border-radius: 6px;
+    height: 2em;
+}
+
+
+
+/*-- Settings menu --*/
+html:not(.boring) .filter-row {
+    position: relative;
+}
+
+html:not(.boring) .settingsButtonWrapper {
+    width: 2em;
+    position: absolute;
+    top: 6em;
+    right: 4.5em;
+    z-index: 1000;
+}
+
+html:not(.boring) .settingsButton {
+    width: 2em;
+    height: 2em;
+    padding: 0.15em;
+    cursor: pointer;
+}
+
+html:not(.boring) .settingsButton,
+html:not(.boring) .settingsDropdown {
+    border: solid 3px;
+}
+
+html:not(.boring) .settingsDropdown {
+    position: absolute;
+    left: 50%;
+    bottom: 0.8em;
+    transform: translate(-50%, 100%);
+    display: none;
+    margin-top: -1px;
+    font-size: 0.5rem;
+}
+
+html:not(.boring) .container-checkbox {
+    display: block;
+    width: 7.5em;
+    margin: 0.2em 0em 0.2em 0.5em;
+    display: block;
+    position: relative;
+    padding: 10px 0 10px 35px;
+    cursor: pointer;
+    font-size: 180%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+html:not(.boring) .container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+html:not(.boring) .container-checkbox .checkmark {
+    position: absolute;
+    top: 0.55em;
+    left: 0;
+    height: 1.2em;
+    width: 1.2em;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+html:not(.boring) .container-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+html:not(.boring) .container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+html:not(.boring) .container-checkbox .checkmark:after {
+    left: 0.452em;
+    top: 0.2em;
+    width: 0.24em;
+    height: 0.5em;
+    border: solid white;
+    border-width: 0 0.16em 0.16em 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+
+/*-- Media queries --*/
+@media only screen and (max-width: 1200px) {
+    html:not(.boring) .filter-row {
+        margin-left: clamp(-8em, -10vw, -3.5em);
+        margin-right: clamp(-8em, -10vw, -3.5em);
+    }
+    
+    html:not(.boring) tbody tr.consumed td:last-child::after,
+    html:not(.boring) tbody tr.consumed.partially td:last-child::after {
+        letter-spacing: -0px;
+    }
+
+    html:not(.boring) table.level1:before,
+    html:not(.boring) table.level2:before,
+    html:not(.boring) table.level3:before,
+    html:not(.boring) table.level4:before,
+    html:not(.boring) table.level5:before,
+    html:not(.boring) table.level6:before,
+    html:not(.boring) table.level7:before,
+    html:not(.boring) table.level8:before,
+    html:not(.boring) table.level9:before {
+        letter-spacing: -1px;
+    }
+
+    html:not(.boring) .settingsButtonWrapper {
+        right: 6em;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    html:not(.boring) .filter-row h1 {
+        width: 100%;
+        margin-bottom: 0.1em;
+        margin-top: 0.3em;
+    }
+    html:not(.boring) .filter-row {
+        margin-bottom: 1.8em;
+    }
+
+    html:not(.boring) .settingsButtonWrapper {
+        top: 0.1em;
+        right: 2em;
+    }
+
+    html:not(.boring) .settingsDropdown {
+        transform: translate(-70%, 100%);
+    }
+    
+    html:not(.boring) .settingsButton {
+        width: 2em;
+        height: 2em;
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    html:not(.boring) tr {
+        height: 5.5em; /* 200px */
+    }
+    html:not(.boring) td {
+        display: block;
+        width: 100%;
+        height: auto !Important;
+        padding: 0;
+    }
+    
+    html:not(.boring) .spellTable th:first-child,
+    html:not(.boring) tbody tr td:first-child {
+        width: 100%;
+        font-weight: bold;
+        padding-top: 0.5em;
+    }
+    html:not(.boring) .spellTable th:last-child,
+    html:not(.boring) tbody tr td:last-child {
+        width: 100%;
+        padding-top: 0px;
+        padding-bottom: 0.5em;
+    }
+    
+    html:not(.boring) tbody tr.consumed td:last-child::after {
+        top: 0;
+        left: calc(100% + 2vw);
+    }
+    
+    html:not(.boring) #columnTitles thead {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 500px) {
+    
+}
